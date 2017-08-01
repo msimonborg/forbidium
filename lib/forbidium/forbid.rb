@@ -1,4 +1,5 @@
 module Forbidium
+  # Adds the #forbid and #forbid! methods
   module Forbid
     def forbid(filters = {})
       dup.forbid!(filters)

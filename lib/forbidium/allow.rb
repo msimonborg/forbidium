@@ -1,4 +1,5 @@
 module Forbidium
+  # Adds the #allow and #allow! methods
   module Allow
     def allow(filters = {})
       dup.allow!(filters)

@@ -1,6 +1,7 @@
 require 'rails/railtie'
 
 module Forbidium
+  # Railtie initializer that adds Forbidium methods to controller params
   class Railtie < ::Rails::Railtie
     initializer :forbidium do
       ActiveSupport.on_load :action_controller do
