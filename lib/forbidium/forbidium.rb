@@ -22,6 +22,6 @@ require 'forbidium/forbid'
 #     hash # => {}
 module Forbidium
   def self.included(base)
-    [Forbidium::Allow, Forbidium::Forbid].each { |mod| base.include mod }
+    [Forbidium::Allow, Forbidium::Forbid].each { |mod| base.send :include, mod }
   end
 end

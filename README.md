@@ -36,6 +36,21 @@ hash.forbid!(two: 'two') # => {}
 
 hash # => {}
 ```
+
+## Platform support
+
+Tested against:
+* MRI 2.0.0
+* MRI 2.1.10
+* MRI 2.2.5
+* MRI 2.3.0
+* MRI 2.3.4
+* MRI 2.4.1
+* JRuby 9.1.6.0
+* Rubinius 3.74
+* JRuby HEAD
+* MRI HEAD
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
