@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Forbidium
   # Adds the #allow and #allow! methods
   module Allow
@@ -7,9 +9,8 @@ module Forbidium
 
     def allow!(filters = {})
       filters.each do |key, val|
-        delete_if do |k, v|
-          key.to_s == k.to_s && !Array(val).include?(v)
-        end
+        delete(key)      unless Array(val).include?(self[key])
+        delete(key.to_s) unless Array(val).include?(self[key.to_s])
       end
       self
     end

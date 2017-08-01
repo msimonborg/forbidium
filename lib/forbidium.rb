@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'forbidium/version'
 require 'forbidium/forbidium'
 require 'forbidium/core_ext/hash'

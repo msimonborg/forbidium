@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Forbidium
   # Adds the #forbid and #forbid! methods
   module Forbid
@@ -7,9 +9,8 @@ module Forbidium
 
     def forbid!(filters = {})
       filters.each do |key, val|
-        delete_if do |k, v|
-          key.to_s == k.to_s && Array(val).include?(v)
-        end
+        delete(key)      if Array(val).include?(self[key])
+        delete(key.to_s) if Array(val).include?(self[key.to_s])
       end
       self
     end

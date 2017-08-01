@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Forbidium do
   it 'includes Forbidium::Allow and Forbidium::Forbid when included' do
     class ForbidiumTestObject; end

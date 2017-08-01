@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Forbidium::Forbid do
   let(:symbol_hash) { { hi: 'hi', hello: 'hello' } }
   let(:string_hash) { { 'hi' => 'hi', 'hello' => 'hello' } }
