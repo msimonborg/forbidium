@@ -1,4 +1,7 @@
 # Forbidium
+[![Gem Version](https://badge.fury.io/rb/forbidium.svg)](https://badge.fury.io/rb/forbidium)
+[![Code Climate](https://codeclimate.com/github/msimonborg/forbidium/badges/gpa.svg)](https://codeclimate.com/github/msimonborg/forbidium)
+[![Build Status](https://travis-ci.org/msimonborg/forbidium.svg?branch=master)](https://travis-ci.org/msimonborg/forbidium)
 
 Filter hashes by setting  allowed or forbidden values for specific keys.
 

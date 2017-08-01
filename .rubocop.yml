@@ -6,3 +6,8 @@ Metrics/BlockLength:
     - 'forbidium.gemspec'
     - 'spec/**/*'
     - 'Rakefile'
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%i': '[]'
+    '%w': '[]'
