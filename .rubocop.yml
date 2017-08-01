@@ -1,0 +1,5 @@
+Metrics/BlockLength:
+  Exclude:
+    - 'forbidium.gemspec'
+    - 'spec/**/*'
+    - 'Rakefile'
