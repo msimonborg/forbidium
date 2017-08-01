@@ -23,6 +23,8 @@ Or install it yourself as:
     $ gem install forbidium
 
 ## Usage
+The gem will add four methods to `Hash`: `#allow`, `#allow!`, `#forbid`, and `#forbid!`
+
 ```ruby
 hash = { one: 'one', two: 'two' }
 
@@ -39,6 +41,14 @@ hash.allow!(one: 'two') # => { two: 'two' }
 hash.forbid!(two: 'two') # => {}
 
 hash # => {}
+```
+
+When added to the `Gemfile` in a Rails project, `ActionController::Parameters` will also receive these methods so you can use them with your `strong_parameters`:
+
+```ruby
+def user_params
+  params.require(:user).permit(:email, :password, :role).forbid(role: ['sys_admin', 'owner'])
+end
 ```
 
 ## Platform support
