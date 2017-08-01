@@ -2,6 +2,7 @@
 [![Gem Version](https://badge.fury.io/rb/forbidium.svg)](https://badge.fury.io/rb/forbidium)
 [![Code Climate](https://codeclimate.com/github/msimonborg/forbidium/badges/gpa.svg)](https://codeclimate.com/github/msimonborg/forbidium)
 [![Build Status](https://travis-ci.org/msimonborg/forbidium.svg?branch=master)](https://travis-ci.org/msimonborg/forbidium)
+[![Coverage Status](https://coveralls.io/repos/github/msimonborg/forbidium/badge.svg?branch=master)](https://coveralls.io/github/msimonborg/forbidium?branch=master)
 
 Filter hashes by setting  allowed or forbidden values for specific keys.
 
