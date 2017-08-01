@@ -3,7 +3,7 @@
 require 'forbidium/allow'
 require 'forbidium/forbid'
 
-# Filter hash keys by setting  allowed or forbidden values for specific keys.
+# Filter hashes by setting  allowed or forbidden values for specific keys.
 #
 #     hash = { one: 'one', two: 'two' }
 #
