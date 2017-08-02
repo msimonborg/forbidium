@@ -54,9 +54,7 @@ end
 ## Platform support
 
 Tested against:
-* MRI 2.0.0
-* MRI 2.1.10
-* MRI 2.2.5
+* MRI 2.2.2
 * MRI 2.3.0
 * MRI 2.3.4
 * MRI 2.4.1
