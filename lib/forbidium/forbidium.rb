@@ -18,13 +18,13 @@
 #
 #     hash # => {}
 module Forbidium
-  module Allow
+  module Allow # :nodoc:
     def allow(filters = {})
       dup.allow!(filters)
     end
   end
 
-  module Forbid
+  module Forbid # :nodoc:
     def forbid(filters = {})
       dup.forbid!(filters)
     end

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module Forbidium
-  module Hash
+  module Hash # :nodoc:
     # Adds the #forbid and #forbid! methods
-    module Forbid
+    module Forbid # :nodoc:
       include Forbidium::Forbid
 
       def forbid!(filters = {})
@@ -15,7 +15,7 @@ module Forbidium
     end
 
     # Adds the #allow and #allow! methods
-    module Allow
+    module Allow # :nodoc:
       include Forbidium::Allow
 
       def allow!(filters = {})

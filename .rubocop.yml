@@ -8,9 +8,9 @@ Metrics/BlockLength:
     - 'Rakefile'
 
 Metrics/LineLength:
-  Max: 85
+  Max: 80
   Exclude:
-    - 'spec/dummy/**/*'
+    - 'spec/**/*'
 
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
