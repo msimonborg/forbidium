@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe Forbidium::Forbid do
+describe Forbidium::Hash::Forbid do
   let(:symbol_hash) { { hi: 'hi', hello: 'hello' } }
   let(:string_hash) { { 'hi' => 'hi', 'hello' => 'hello' } }
 
@@ -11,7 +11,7 @@ describe Forbidium::Forbid do
       expect(ForbidTestObject.new).not_to respond_to :forbid
       expect(ForbidTestObject.new).not_to respond_to :forbid!
 
-      ForbidTestObject.class_eval { include Forbidium::Forbid }
+      ForbidTestObject.class_eval { include Forbidium::Hash::Forbid }
 
       expect(ForbidTestObject.new).to respond_to :forbid
       expect(ForbidTestObject.new).to respond_to :forbid!
@@ -21,7 +21,10 @@ describe Forbidium::Forbid do
   context '#forbid' do
     it 'only forbids the named keys if they have the specified value' do
       expect(symbol_hash.forbid(hi: 'bye', hello: 'hello')).to eq(hi: 'hi')
-      expect(string_hash.forbid(hi: 'bye', hello: 'hello')).to eq('hi' => 'hi')
+      expect(string_hash.forbid(hi: 'bye', hello: 'hello')).to_not eq('hi' => 'hi')
+
+      expect(symbol_hash.forbid('hi' => 'bye', 'hello' => 'hello')).to_not eq(hi: 'hi')
+      expect(string_hash.forbid('hi' => 'bye', 'hello' => 'hello')).to eq('hi' => 'hi')
     end
 
     it 'works with arrays of values' do
@@ -30,6 +33,13 @@ describe Forbidium::Forbid do
       ).to eq(hi: 'hi')
       expect(
         string_hash.forbid(hi: %w[bye byebye], hello: %w[hello hey])
+      ).to_not eq('hi' => 'hi')
+
+      expect(
+        symbol_hash.forbid('hi' => %w[bye byebye], 'hello' => %w[hello hey])
+      ).to_not eq(hi: 'hi')
+      expect(
+        string_hash.forbid('hi' => %w[bye byebye], 'hello' => %w[hello hey])
       ).to eq('hi' => 'hi')
     end
 
@@ -42,7 +52,7 @@ describe Forbidium::Forbid do
   context '#forbid!' do
     it 'only forbids the named keys if they have the specified value' do
       expect(symbol_hash.forbid!(hi: 'bye', hello: 'hello')).to eq(hi: 'hi')
-      expect(string_hash.forbid!(hi: 'bye', hello: 'hello')).to eq('hi' => 'hi')
+      expect(string_hash.forbid!('hi' => 'bye', 'hello' => 'hello')).to eq('hi' => 'hi')
     end
 
     it 'works with arrays of values' do
@@ -50,7 +60,7 @@ describe Forbidium::Forbid do
         symbol_hash.forbid!(hi: %w[bye byebye], hello: %w[hello hey])
       ).to eq(hi: 'hi')
       expect(
-        string_hash.forbid!(hi: %w[bye byebye], hello: %w[hello hey])
+        string_hash.forbid!('hi' => %w[bye byebye], 'hello' => %w[hello hey])
       ).to eq('hi' => 'hi')
     end
 

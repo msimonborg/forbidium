@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'forbidium/allow'
-require 'forbidium/forbid'
-
 # Filter hashes by setting  allowed or forbidden values for specific keys.
 #
 #     hash = { one: 'one', two: 'two' }
@@ -21,7 +18,15 @@ require 'forbidium/forbid'
 #
 #     hash # => {}
 module Forbidium
-  def self.included(base)
-    [Forbidium::Allow, Forbidium::Forbid].each { |mod| base.send :include, mod }
+  module Allow
+    def allow(filters = {})
+      dup.allow!(filters)
+    end
+  end
+
+  module Forbid
+    def forbid(filters = {})
+      dup.forbid!(filters)
+    end
   end
 end
