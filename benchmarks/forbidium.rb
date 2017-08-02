@@ -11,6 +11,6 @@ hash = {}
 end
 
 Benchmark.bmbm do |bm|
-  bm.report('allow') { hash.allow(hash) }
-  bm.report('forbid') { hash.forbid(hash) }
+  bm.report('Hash#allow') { hash.allow(hash) }
+  bm.report('Hash#forbid') { hash.forbid(hash) }
 end
