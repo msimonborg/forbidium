@@ -10,9 +10,6 @@ module Forbidium
         def forbid!(filters = {})
           filters.each do |key, val|
             delete(key) if Array(val).include?(self[key])
-            if key.is_a? Symbol
-              delete(key.to_s) if Array(val).include?(self[key.to_s])
-            end
           end
           self
         end
@@ -25,9 +22,6 @@ module Forbidium
         def allow!(filters = {})
           filters.each do |key, val|
             delete(key) unless Array(val).include?(self[key])
-            if key.is_a? Symbol
-              delete(key.to_s) unless Array(val).include?(self[key.to_s])
-            end
           end
           self
         end
