@@ -16,7 +16,8 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/msimonborg/forbidium'
   spec.license       = 'MIT'
 
-  spec.files         = `git ls-files -z lib LICENSE.txt README.md`.split("\0")
+  spec.files = `git ls-files -z lib LICENSE.txt README.md CHANGELOG.md`.split("\0")
+
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
