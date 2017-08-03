@@ -43,6 +43,16 @@ hash.forbid!(two: 'two') # => {}
 hash # => {}
 ```
 
+### Type sensitive for `Hash`
+
+```ruby
+hash = { 'one' => 'one', 'two' => 'two' }
+
+hash.forbid(one: 'one') # => { "one" => "one", "two" => "two" }
+
+hash.forbid('one' => 'one') # => { "two" => "two" }
+```
+
 When added to the `Gemfile` in a Rails project, `ActionController::Parameters` will also receive these methods so you can use them with your `strong_parameters`:
 
 ```ruby
@@ -50,6 +60,17 @@ def user_params
   params.require(:user).permit(:email, :password, :role).forbid(role: ['sys_admin', 'owner'])
 end
 ```
+
+### Type insensitive for `HashWithIndifferentAccess`
+```ruby
+params = ActionController::Parameters.new('one' => 'one', 'two' => 'two').permit(:one, :two)
+
+params.forbid(one: 'one').to_h # => { "two" => "two" }
+
+params.forbid('one' => 'one').to_h # => { "two" => "two" }
+```
+
+If your custom `Hash`-like class implements the `#[]` finder and `#delete`, you can `include Forbidium` to mix in the methods.
 
 ## Platform support
 
