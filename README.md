@@ -55,7 +55,7 @@ hash.forbid('one' => 'one') # => { "two" => "two" }
 
 ## With Rails and strong parameters
 
-When added to the `Gemfile` in a Rails project, `ActionController::Parameters` will also receive these methods so you can use them with your `strong_parameters`:
+When added to the `Gemfile` in a Rails project, `ActionController::Parameters` will automatically receive these methods so you can use them with your `strong_parameters`:
 
 ```ruby
 def user_params
