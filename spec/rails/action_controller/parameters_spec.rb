@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# frozen_string_literal
-
 ActiveSupport.run_load_hooks(:action_controller, ActionController::Base)
 
 describe ActionController::Parameters do
