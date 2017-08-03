@@ -1,4 +1,7 @@
 # Changelog
+1.2.0
+-----
+* `HashWithIndifferentAccess` and `Hash` do not need different implementations. Same module can be included in both and achieve the correct results. To mixin the methods to any `Hash`-like class just `include Forbidium`
 
 1.1.1
 -----

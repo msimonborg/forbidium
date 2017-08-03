@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe Forbidium::Hash::Forbid do
+describe Forbidium::Forbid do
   let(:symbol_hash) { { hi: 'hi', hello: 'hello' } }
   let(:string_hash) { { 'hi' => 'hi', 'hello' => 'hello' } }
 
@@ -11,7 +11,7 @@ describe Forbidium::Hash::Forbid do
       expect(ForbidTestObject.new).not_to respond_to :forbid
       expect(ForbidTestObject.new).not_to respond_to :forbid!
 
-      ForbidTestObject.class_eval { include Forbidium::Hash::Forbid }
+      ForbidTestObject.class_eval { include Forbidium::Forbid }
 
       expect(ForbidTestObject.new).to respond_to :forbid
       expect(ForbidTestObject.new).to respond_to :forbid!
