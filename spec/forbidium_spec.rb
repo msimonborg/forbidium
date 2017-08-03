@@ -1,19 +1,17 @@
 # frozen_string_literal: true
 
-describe Forbidium do
-  it 'includes Forbidium::Allow and Forbidium::Forbid when included' do
-    class ForbidiumTestObject; end
+describe Allowable do
+  it 'includes Allowable::Allow and Allowable::Forbid when included' do
+    class AllowableTestObject; end
 
-    expect(ForbidiumTestObject.include?(Forbidium::Allow)).not_to be true
-    expect(ForbidiumTestObject.include?(Forbidium::Forbid)).not_to be true
+    expect(AllowableTestObject.include?(Allowable)).not_to be true
 
-    ForbidiumTestObject.class_eval { include Forbidium }
+    AllowableTestObject.class_eval { include Forbidium }
 
-    expect(ForbidiumTestObject.include?(Forbidium::Allow)).to be true
-    expect(ForbidiumTestObject.include?(Forbidium::Forbid)).to be true
+    expect(AllowableTestObject.include?(Allowable)).to be true
   end
 
-  it 'is included in Hash when required' do
-    expect(Hash.include?(Forbidium)).to be true
+  it 'Allowable is included in Hash when required' do
+    expect(Hash.include?(Allowable)).to be true
   end
 end

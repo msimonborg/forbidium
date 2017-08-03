@@ -3,8 +3,8 @@
 ActiveSupport.run_load_hooks(:action_controller, ActionController::Base)
 
 describe ActionController::Parameters do
-  it 'includes Forbidium' do
-    expect(ActionController::Parameters.include?(Forbidium)).to be true
+  it 'includes Allowable' do
+    expect(ActionController::Parameters.include?(Allowable)).to be true
   end
 
   let(:params) do

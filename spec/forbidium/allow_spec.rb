@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe Forbidium::Allow do
+describe Forbidium do
   let(:symbol_hash) { { hi: 'hi', hello: 'hello' } }
   let(:string_hash) { { 'hi' => 'hi', 'hello' => 'hello' } }
 
@@ -11,7 +11,7 @@ describe Forbidium::Allow do
       expect(AllowTestObject.new).not_to respond_to :allow
       expect(AllowTestObject.new).not_to respond_to :allow!
 
-      AllowTestObject.class_eval { include Forbidium::Allow }
+      AllowTestObject.class_eval { include Forbidium }
 
       expect(AllowTestObject.new).to respond_to :allow
       expect(AllowTestObject.new).to respond_to :allow!
