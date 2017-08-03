@@ -11,6 +11,7 @@ Metrics/LineLength:
   Max: 80
   Exclude:
     - 'spec/**/*'
+    - 'forbidium.gemspec'
 
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
